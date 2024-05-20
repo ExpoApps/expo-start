@@ -6,16 +6,17 @@ export default function RootLayout() {
   return (
     <Stack
       screenOptions={{
+        headerLeft: () => null,
         headerRight: () => (
           <View style={{flexDirection: "row"}}>
             <Link href="/">
-              <Feather name="home" size={25} style={{marginRight: 15}} />
+              <Feather name="home" size={25} style={{marginRight: 10}} />
             </Link>
             <Link href="/page">
-              <Feather name="file-text" size={25} style={{marginRight: 15}} />
+              <Feather name="file-text" size={25} style={{marginRight: 10}} />
             </Link>
             <Link href="/menu">
-              <Feather name="menu" size={25} style={{marginRight: 15}} />
+              <Feather name="menu" size={25} style={{marginRight: 10}} />
             </Link>
           </View>
         ),
@@ -23,11 +24,7 @@ export default function RootLayout() {
     >
       <Stack.Screen name="index" />
       <Stack.Screen name="page" />
-      <Stack.Screen name="menu"
-        options={{
-          presentation: 'modal',
-        }}
-      />
+      <Stack.Screen name="menu" />
     </Stack>
   );
 }
