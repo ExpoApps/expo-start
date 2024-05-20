@@ -1,10 +1,11 @@
 import { Stack, Link } from "expo-router";
 import Feather from '@expo/vector-icons/Feather';
-import { View, Text, Dimensions } from 'react-native';
+import { View } from 'react-native';
 import { NavBarLink } from "@/components/navigation/NavBarLink";
+import { isDesktop } from "@/utils/screenUtils";
 
 export default function RootLayout() {
-  const windowWidth = Dimensions.get('window').width;
+  const showText = isDesktop();
 
   return (
     <Stack
@@ -14,17 +15,17 @@ export default function RootLayout() {
         headerRight: () => (
           <View style={{flexDirection: "row", alignItems: "center"}}>
             <Link href="/">
-              {windowWidth > 800 
+              {showText
               ? <NavBarLink name="Home" />
               : <Feather name="home" size={25} style={{marginHorizontal: 5}} />}
             </Link>
             <Link href="/page">
-              {windowWidth > 800 
+              {showText
               ? <NavBarLink name="Page" />
               : <Feather name="file-text" size={25} style={{marginHorizontal: 5}} />}
             </Link>
             <Link href="/menu">
-              <Feather name="menu" size={25} style={{marginLeft: 5, marginRight: 10 }} />
+              <Feather name="settings" size={25} style={{marginLeft: 5, marginRight: 10 }} />
             </Link>
           </View>
         ),

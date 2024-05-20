@@ -5,8 +5,7 @@ export default function Index() {
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        padding: 20,
       }}
     >
       <Text>Edit app/index.tsx to edit this screen.</Text>
