@@ -5,6 +5,7 @@ import { useThemeColor } from '@/hooks/useThemeColor';
 
 export function NavBarLink({name}: {name: string}) {
     const [isHovered, setIsHovered] = useState(false);
+    const grayColor = useThemeColor({}, 'gray');
 
     return (
         <Pressable
@@ -12,7 +13,7 @@ export function NavBarLink({name}: {name: string}) {
         onHoverOut={() => setIsHovered(false)}
         style={() => [
           styles.button,
-          {backgroundColor: isHovered ? useThemeColor({}, 'gray') : "transparent"},
+          {backgroundColor: isHovered ? grayColor : "transparent"},
         ]}
       >
             <ThemedText style={{fontWeight: "bold"}}>{name}</ThemedText>
