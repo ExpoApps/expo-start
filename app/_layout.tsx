@@ -3,9 +3,7 @@ import { View, Pressable } from 'react-native';
 import { NavBarLink } from "@/components/navigation/NavBarLink";
 import { isDesktop } from "@/utils/screenUtils";
 import { UserSettingsProvider, useUserSettings } from "@/context/UserSettingsContext";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView"; 
-import { ThemedIcon } from "@/components/ThemedIcon";
+import { ThemedIcon, ThemedText, ThemedView } from '@/components';
 
 export default function RootLayout() {
   const showText = isDesktop();

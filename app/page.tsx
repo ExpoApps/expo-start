@@ -1,14 +1,14 @@
-import { Text, View } from "react-native";
+import { ThemedText, ThemedView } from '@/components';
 
 export default function Page() {
   return (
-    <View
+    <ThemedView
       style={{
         flex: 1,
         padding: 20,
       }}
     >
-      <Text>Edit app/page.tsx to edit this screen.</Text>
-    </View>
+      <ThemedText>Edit app/page.tsx to edit this screen.</ThemedText>
+    </ThemedView>
   );
 }
