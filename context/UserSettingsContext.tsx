@@ -1,22 +1,23 @@
 import React, { createContext, useState, useContext } from 'react';
 import { storage } from '@/utils/storage';
+import { useColorScheme } from 'react-native';
 
 export const UserSettingsContext = createContext({
-  isDarkMode: false,
-  toggleDarkMode: () => {},
+  theme: 'light',
+  toggleTheme: () => {},
 });
 
 export const UserSettingsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(storage.getBoolean('isDarkMode') || false);
+  const [theme, setTheme] = useState(storage.getString('theme') || useColorScheme() || 'light');
 
-  const toggleDarkMode = () => {
-    const newMode = !isDarkMode;
-    setIsDarkMode(newMode);
-    storage.set('isDarkMode', newMode);
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    storage.set('theme', newTheme);
   };
 
   return (
-    <UserSettingsContext.Provider value={{ isDarkMode, toggleDarkMode }}>
+    <UserSettingsContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </UserSettingsContext.Provider>
   );

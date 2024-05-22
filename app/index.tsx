@@ -1,14 +1,16 @@
 import { Text, View } from "react-native";
+import { ThemedView } from "@/components/ThemedView";
+import { ThemedText } from "@/components/ThemedText";
 
 export default function Index() {
   return (
-    <View
+    <ThemedView
       style={{
         flex: 1,
         padding: 20,
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
+      <ThemedText>Edit app/index.tsx to edit this screen.</ThemedText>
+    </ThemedView>
   );
 }

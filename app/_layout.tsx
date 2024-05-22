@@ -29,8 +29,8 @@ export default function RootLayout() {
                 ? <NavBarLink name="Page" />
                 : <Feather name="file-text" size={25} style={{marginHorizontal: 5}} />}
               </Link>
-              <Pressable onPress={userSettings.toggleDarkMode}>
-                <Feather name={userSettings.isDarkMode ? "moon" : "sun"}size={25} style={{marginLeft: 5, marginRight: 10 }} />
+              <Pressable onPress={userSettings.toggleTheme}>
+                <Feather name={userSettings.theme === "dark" ? "sun" : "moon"}size={25} style={{marginLeft: 5, marginRight: 10 }} />
               </Pressable>
             </View>
           )},
