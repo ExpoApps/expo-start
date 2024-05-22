@@ -1,8 +1,8 @@
 import {useState} from 'react';
 import { Pressable, StyleSheet } from 'react-native';
-import { ThemedText
+import { ThemedText } from '../ThemedText';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
- } from '../ThemedText';
 export function NavBarLink({name}: {name: string}) {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -12,7 +12,7 @@ export function NavBarLink({name}: {name: string}) {
         onHoverOut={() => setIsHovered(false)}
         style={() => [
           styles.button,
-          isHovered ? styles.buttonHovered : null,
+          {backgroundColor: isHovered ? useThemeColor({}, 'gray') : "transparent"},
         ]}
       >
             <ThemedText style={{fontWeight: "bold"}}>{name}</ThemedText>
@@ -25,8 +25,5 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         paddingHorizontal: 10,
         borderRadius: 5,
-    },
-    buttonHovered: {
-        backgroundColor: 'gray',
     },
 });

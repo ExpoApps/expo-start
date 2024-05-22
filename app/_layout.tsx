@@ -4,6 +4,7 @@ import { NavBarLink } from "@/components/navigation/NavBarLink";
 import { isDesktop } from "@/utils/screenUtils";
 import { UserSettingsProvider, useUserSettings } from "@/context/UserSettingsContext";
 import { ThemedIcon, ThemedText, ThemedView } from '@/components';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
 export default function RootLayout() {
   const showText = isDesktop();
@@ -15,7 +16,13 @@ export default function RootLayout() {
           header: () => {
             const userSettings = useUserSettings();
             return (
-              <ThemedView style={{flexDirection: "row", justifyContent: "space-between", padding: 5}}>
+              <ThemedView style={{
+                flexDirection: "row", 
+                justifyContent: "space-between", 
+                padding: 5,
+                borderBottomWidth: 1,
+                borderBottomColor: useThemeColor({}, 'gray'),
+              }}>
               <ThemedText type="subtitle">
                 App
               </ThemedText>
