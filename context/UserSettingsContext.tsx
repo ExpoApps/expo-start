@@ -1,17 +1,10 @@
 import React, { createContext, useState, useContext } from 'react';
 import { storage } from '@/utils/storage';
 
-type UserSettingsContextType = {
-  isDarkMode: boolean;
-  toggleDarkMode: () => void;
-};
-
-const defaultUserSettings: UserSettingsContextType = {
+export const UserSettingsContext = createContext({
   isDarkMode: false,
   toggleDarkMode: () => {},
-};
-
-export const UserSettingsContext = createContext<UserSettingsContextType>(defaultUserSettings);
+});
 
 export const UserSettingsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(storage.getBoolean('isDarkMode') || false);
