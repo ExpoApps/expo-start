@@ -1,6 +1,8 @@
 import {useState} from 'react';
-import { Text, View, Pressable, StyleSheet } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
+import { ThemedText
 
+ } from '../ThemedText';
 export function NavBarLink({name}: {name: string}) {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -13,7 +15,7 @@ export function NavBarLink({name}: {name: string}) {
           isHovered ? styles.buttonHovered : null,
         ]}
       >
-            <Text style={{fontWeight: "bold"}}>{name}</Text>
+            <ThemedText style={{fontWeight: "bold"}}>{name}</ThemedText>
         </Pressable>
     ); 
 }

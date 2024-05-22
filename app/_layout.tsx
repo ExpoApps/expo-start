@@ -1,10 +1,11 @@
 import { Stack, Link } from "expo-router";
-import Feather from '@expo/vector-icons/Feather';
 import { View, Pressable } from 'react-native';
 import { NavBarLink } from "@/components/navigation/NavBarLink";
 import { isDesktop } from "@/utils/screenUtils";
-import { UserSettingsProvider, UserSettingsContext } from "@/context/UserSettingsContext";
-import { useContext } from "react";
+import { UserSettingsProvider, useUserSettings } from "@/context/UserSettingsContext";
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView"; 
+import { ThemedIcon } from "@/components/ThemedIcon";
 
 export default function RootLayout() {
   const showText = isDesktop();
@@ -13,26 +14,29 @@ export default function RootLayout() {
     <UserSettingsProvider>
       <Stack
         screenOptions={{
-          headerLeft: () => null,
-          headerTitle: "App",
-          headerRight: () => {
-            const userSettings = useContext(UserSettingsContext);
+          header: () => {
+            const userSettings = useUserSettings();
             return (
-            <View style={{flexDirection: "row", alignItems: "center"}}>
-              <Link href="/">
-                {showText
-                ? <NavBarLink name="Home" />
-                : <Feather name="home" size={25} style={{marginHorizontal: 5}} />}
-              </Link>
-              <Link href="/page">
-                {showText
-                ? <NavBarLink name="Page" />
-                : <Feather name="file-text" size={25} style={{marginHorizontal: 5}} />}
-              </Link>
-              <Pressable onPress={userSettings.toggleTheme}>
-                <Feather name={userSettings.theme === "dark" ? "sun" : "moon"}size={25} style={{marginLeft: 5, marginRight: 10 }} />
-              </Pressable>
-            </View>
+              <ThemedView style={{flexDirection: "row", justifyContent: "space-between", padding: 5}}>
+              <ThemedText type="subtitle">
+                App
+              </ThemedText>
+              <View style={{flexDirection: "row", alignItems: "center"}}>
+                <Link href="/">
+                  {showText
+                  ? <NavBarLink name="Home" />
+                  : <ThemedIcon name="home" size={25} style={{marginHorizontal: 5}} />}
+                </Link>
+                <Link href="/page">
+                  {showText
+                  ? <NavBarLink name="Page" />
+                  : <ThemedIcon name="file-text" size={25} style={{marginHorizontal: 5}} />}
+                </Link>
+                <Pressable onPress={userSettings.toggleTheme}>
+                  <ThemedIcon name={userSettings.theme === "dark" ? "sun" : "moon"}size={25} style={{marginHorizontal: 5}} />
+                </Pressable>
+              </View>
+            </ThemedView>
           )},
         }}
       >
