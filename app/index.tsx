@@ -13,6 +13,7 @@ export default function Index() {
       style={{
         flex: 1,
         padding: 20,
+        minWidth: 320,
       }}
     >
       <Calendar

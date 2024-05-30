@@ -1,5 +1,5 @@
 import React from 'react'
-import {  Link } from "expo-router";
+import { Link } from "expo-router";
 import { View, Pressable } from 'react-native';
 import { NavBarLink } from "@/components/navigation/NavBarLink";
 import { isDesktop } from "@/utils/screenUtils";
