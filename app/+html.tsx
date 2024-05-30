@@ -12,6 +12,7 @@ export default function Root({ children }: PropsWithChildren) {
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="google-site-verification" content="Z9B_Iw5I16rJj7peonedbO8jAVMtApKOTX42KI7pGNE" />
         {/*
           <meta name="description" content="This is a description of my web app." />
           <meta name="keywords" content="web, app, react, native" />
